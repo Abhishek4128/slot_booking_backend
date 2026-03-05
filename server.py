@@ -27,7 +27,7 @@ DB_CONFIG = {
 SERVER_PORT   = 8000
 # BASE_DIR     = Path(__file__).resolve().parent.parent
 # FRONTEND_DIR = BASE_DIR / 'frontend'
-ALLOWED_ORIGIN = 'https://glowing-pika-f770ac.netlify.app/'   
+ALLOWED_ORIGIN = 'https://glowing-pika-f770ac.netlify.app'   
 
 
 
