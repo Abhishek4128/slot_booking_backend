@@ -16,10 +16,10 @@ from urllib.parse import urlparse, parse_qs
 
 # ── CONFIG ────────────────────────────────────────────────────────────────────
 DB_CONFIG = {
-    'host':     'localhost',
-    'user':     'slot_user',
-    'password': 'Abhi123',       
-    'database': 'slot_booking_db',
+    'host':     'mysql.railway.internal',
+    'user':     'root',
+    'password': 'nqdyEBIeewACCFiBkvXqwzqQVMQKhuuZ',       
+    'database': 'railway',
     'port':     3306,
     'charset':  'utf8mb4',
 }
