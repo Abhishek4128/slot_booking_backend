@@ -11,7 +11,7 @@ import json
 import mysql.connector
 import hashlib
 import os
-from datetime import date
+from datetime import date, timedelta
 from urllib.parse import urlparse, parse_qs
 
 # ── CONFIG ────────────────────────────────────────────────────────────────────
@@ -237,7 +237,7 @@ class Handler(BaseHTTPRequestHandler):
         if path == '/':
            return self.send_json({'status': 'SlotBook API is running'})
         if path == '/api/slots':
-            today  = date.today().isoformat()
+            today = (date.today() + timedelta(days=1)).isoformat()
             d_filt = qs.get('date',   [None])[0]
             s_filt = qs.get('status', [None])[0]
 
