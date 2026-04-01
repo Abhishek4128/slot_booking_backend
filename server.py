@@ -121,19 +121,22 @@ def setup_db():
    
     cur.execute("SELECT COUNT(*) FROM slots")
     if cur.fetchone()[0] == 0:
-        today = date.today().isoformat()
-        samples = [
-            ("Morning Standup",      "Daily team sync.",          today, "09:00", "10:00", 5,  "Conference Room A"),
-            ("UX Design Review",     "Review wireframes.",        today, "10:00", "11:00", 4,  "Design Lab"),
-            ("Product Strategy",     "Roadmap planning.",         today, "11:00", "12:00", 6,  "Board Room"),
-            ("Lunch & Learn",        "Knowledge sharing.",        today, "12:00", "13:00", 10, "Cafeteria"),
-            ("Sprint Planning",      "Sprint goals and tasks.",   today, "14:00", "15:00", 8,  "Engineering Hub"),
-            ("Marketing Sync",       "Campaign updates.",         today, "15:00", "16:00", 5,  "Online (Zoom)"),
-            ("1-on-1 Coaching",      "Career development.",       today, "16:00", "17:00", 2,  "Private Office"),
-            ("Dev Workshop",         "Hands-on coding session.",  today, "09:00", "10:00", 6,  "Workshop Room"),
-            ("Client Onboarding",    "New client welcome.",       today, "11:00", "12:00", 4,  "Online (Meet)"),
-            ("Data Analytics Brief", "Weekly metrics review.",    today, "14:00", "15:00", 5,  "Analytics Suite"),
-        ]
+        today = date.today()
+        samples = []
+        for i in range(7):  
+           day = (today + timedelta(days=i)).isoformat()
+           samples.extend([
+            ("Morning Standup",      "Daily team sync.",          day, "09:00", "10:00", 5,  "Conference Room A"),
+            ("UX Design Review",     "Review wireframes.",        day, "10:00", "11:00", 4,  "Design Lab"),
+            ("Product Strategy",     "Roadmap planning.",         day, "11:00", "12:00", 6,  "Board Room"),
+            ("Lunch & Learn",        "Knowledge sharing.",        day, "12:00", "13:00", 10, "Cafeteria"),
+            ("Sprint Planning",      "Sprint goals and tasks.",   day, "14:00", "15:00", 8,  "Engineering Hub"),
+            ("Marketing Sync",       "Campaign updates.",         day, "15:00", "16:00", 5,  "Online (Zoom)"),
+            ("1-on-1 Coaching",      "Career development.",       day, "16:00", "17:00", 2,  "Private Office"),
+            ("Dev Workshop",         "Hands-on coding session.",  day, "09:00", "10:00", 6,  "Workshop Room"),
+            ("Client Onboarding",    "New client welcome.",       day, "11:00", "12:00", 4,  "Online (Meet)"),
+            ("Data Analytics Brief", "Weekly metrics review.",    day, "14:00", "15:00", 5,  "Analytics Suite"),
+           ])
         cur.executemany("""
             INSERT INTO slots (title, description, slot_date,
                                start_time, end_time, capacity, location)
