@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-"""
-server.py — Pure Python HTTP Backend
-No Django, No Flask — only built-in libraries + mysql-connector-python
-Run: python server.py
-"""
 
-=======
->>>>>>> c29687f (Final production backend)
+
+
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 import mysql.connector
