@@ -153,7 +153,7 @@ def new_token(user_id):
 class Handler(BaseHTTPRequestHandler):
 
     def send_json(self, data):
-        body = json.dumps(data).encode()
+        body = json.dumps(data, default=str).encode()
         self.send_response(200)
         self.send_header('Content-Type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', ALLOWED_ORIGIN)
